@@ -1,5 +1,11 @@
 # java21-Spring-Cloud-Alibaba
 
+## 執行指令
+
+-  ./mvnw spring-boot:run
+- ./mvnw clean package
+
+
 ## 備註問題
 
 - 
