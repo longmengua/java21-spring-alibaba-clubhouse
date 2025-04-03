@@ -2,7 +2,7 @@
 
 ## 執行指令
 
-- ./mvnw spring-boot:run
+-  ./mvnw spring-boot:run
 - ./mvnw clean package
 
 
