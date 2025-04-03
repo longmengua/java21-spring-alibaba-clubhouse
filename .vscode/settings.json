@@ -1,0 +1,6 @@
+{
+    "java.jdt.ls.java.home": "/Users/waltor/.jenv/versions/21",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.debug.settings.onBuildFailureProceed": true
+}
