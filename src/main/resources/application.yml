@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: spring-alibaba-clubhouse
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: properties
+  config:
+    import: nacos:spring-alibaba-clubhouse

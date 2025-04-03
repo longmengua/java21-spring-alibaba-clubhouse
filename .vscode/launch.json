@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "SpringAlibabaClubhouseApplication",
+            "request": "launch",
+            "mainClass": "com.example.spring_alibaba_clubhouse.SpringAlibabaClubhouseApplication",
+            "projectName": "spring-alibaba-clubhouse"
+        }
+    ]
+}

@@ -1,12 +1,13 @@
 
 services:
   nacos:
-    image: nacos/nacos-server:v2.4.2-slim
+    image: nacos/nacos-server:v2.5.1
     container_name: nacos
     environment:
       - MODE=standalone
     ports:
       - "8848:8848"
+      - "9848:9848"
     networks:
       - spring-cloud-network
     restart: always
