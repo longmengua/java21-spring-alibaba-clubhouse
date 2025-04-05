@@ -3,10 +3,33 @@
     "configurations": [
         {
             "type": "java",
-            "name": "SpringAlibabaClubhouseApplication",
+            "name": "OrderApplication",
             "request": "launch",
-            "mainClass": "com.example.spring_alibaba_clubhouse.SpringAlibabaClubhouseApplication",
+            "mainClass": "OrderApplication",
             "projectName": "spring-alibaba-clubhouse"
+        },
+        {
+            "type": "java",
+            "name": "Run Order Application",
+            "request": "launch",
+            "mainClass": "com.order.StorageApplication",
+            "projectName": "order"
+        },
+        {
+            "type": "java",
+            "name": "Run Storage Application",
+            "request": "launch",
+            "mainClass": "com.storage.StorageApplication",
+            "projectName": "storage"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Run All Services",
+            "configurations": [
+                "Run Order Application",
+                "Run Storage Application"
+            ]
         }
     ]
 }

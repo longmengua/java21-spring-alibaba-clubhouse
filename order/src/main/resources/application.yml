@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: order
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: properties
+  config:
+    import: nacos:spring-alibaba-clubhouse
+
+seata:
+  enabled: true
+  application-id: my-app
+  tx-service-group: tx_group
+  service:
+    vgroup-mapping:
+      tx_group: default
+    grouplist:
+      default: localhost:8091
+  data-source-proxy-mode: AT
+
