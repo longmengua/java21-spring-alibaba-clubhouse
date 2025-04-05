@@ -16,6 +16,7 @@ public class OrderService {
     @Autowired
     private StorageClient storageClient;
 
+    // @Transactional(rollbackFor = Exception.class)
     public void createOrder() {
         // 創建訂單邏輯
         Order order = new Order();

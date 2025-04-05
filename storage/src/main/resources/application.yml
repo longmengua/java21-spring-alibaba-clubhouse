@@ -14,7 +14,7 @@ spring:
 
 seata:
   enabled: true
-  application-id: my-app
+  application-id: storage-app
   tx-service-group: tx_group
   service:
     vgroup-mapping:
