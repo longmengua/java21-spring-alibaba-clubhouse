@@ -3,6 +3,8 @@ package com.order.client;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import com.order.request.StockRequest;
+
 @Component
 public class StorageClient {
 

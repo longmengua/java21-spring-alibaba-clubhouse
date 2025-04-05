@@ -3,6 +3,10 @@ package com.order.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.order.client.StorageClient;
+import com.order.entity.Order;
+import com.order.repository.OrderRepository;
+
 @Service
 public class OrderService {
 
