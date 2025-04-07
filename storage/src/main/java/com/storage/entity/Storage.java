@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Storage {
-    private Long productId;
-    private Integer quantity;
+    private Long productId = 0L;  // Default value for productId
+    private Integer quantity = 1;  // Default value for quantity
     private String status;
     private String createTime;
     private String updateTime;

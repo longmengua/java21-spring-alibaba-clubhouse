@@ -27,8 +27,8 @@ services:
     image: postgres:latest
     container_name: postgres
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      POSTGRES_USER: seata
+      POSTGRES_PASSWORD: seata
       POSTGRES_DB: seata
     ports:
       - "5432:5432"
@@ -39,21 +39,17 @@ services:
   seata-server:
     image: seataio/seata-server:latest
     container_name: seata
-    environment:
-      - SEATA_PORT=8091
-      - STORE_MODE=file
     volumes:
-      - ./seata/registry.conf:/seata/conf/registry.conf
-      - ./seata/store.conf:/seata/conf/store.conf
+      - ./seata/application.yml:/seata-server/resources/application.yml
     ports:
       - "8091:8091"
       - "7091:7091"
     networks:
       - spring-cloud-network
     # restart: always
-    # depends_on:
-      # - postgres
-      # - nacos
+    depends_on:
+      - postgres
+      - nacos
 
 networks:
   spring-cloud-network:

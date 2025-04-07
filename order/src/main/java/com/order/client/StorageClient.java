@@ -12,7 +12,12 @@ public class StorageClient {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public void decreaseStock(Long productId, Integer quantity) {
-        restTemplate.postForObject(STORAGE_SERVICE_URL + "/decreaseStock", new StockRequest(productId, quantity), Void.class);
+    public boolean decreaseStock(Long productId, Integer quantity) {
+        try {
+            restTemplate.postForObject(STORAGE_SERVICE_URL + "/decreaseStock", new StockRequest(productId, quantity), String.class);
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            return false;
+        }
+        return true;
     }
 }

@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Order {
-    private Long productId;
-    private Integer quantity;
+    private Long productId = 0L;  // Default value for productId
+    private Integer quantity = 0;  // Default value for quantity
     private String status;
     private String createTime;
     private String updateTime;
