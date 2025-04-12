@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.order.client.StorageClient;
-import com.order.entity.Order;
+import com.order.entity.Orders;
 import com.order.repository.OrderRepository;
 
 @Service
@@ -18,14 +18,14 @@ public class OrderService {
     private StorageClient storageClient;
 
     @Transactional(rollbackFor = Exception.class)
-    public void createOrder() {
+    public void createOrder(Long productId, Integer quantity) {
         // 創建訂單邏輯
-        Order order = new Order();
-        order.setProductId(1L);
-        order.setQuantity(1);
+        Orders order = new Orders();
+        order.setId(productId);
+        order.setQuantity(quantity);
         orderRepository.save(order);
 
         // 調用 storage 服務減少庫存
-        storageClient.decreaseStock(order.getProductId(), order.getQuantity());
+        storageClient.decreaseStock(order.getId(), order.getQuantity());
     }
 }

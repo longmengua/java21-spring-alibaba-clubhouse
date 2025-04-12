@@ -11,6 +11,15 @@ spring:
         file-extension: properties
   config:
     import: nacos:spring-alibaba-clubhouse
+  datasource:
+    url: jdbc:postgresql://localhost:5432/seata
+    username: seata
+    password: seata
+    driver-class-name: org.postgresql.Driver
+  # jpa:
+  #   show-sql: true
+  #   hibernate:
+  #     ddl-auto: update
 
 seata:
   enabled: true
