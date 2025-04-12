@@ -11,6 +11,9 @@
 
 ## Seata
 
-- file.conf - Seata Server Configuration
-- store.conf - Transaction Store Configuration
-- registry.conf - Seata Registry Configuration
+- SQL
+    - https://github.com/apache/incubator-seata/blob/1.7.0/script/server/db/postgresql.sql
+- 設定檔
+    - file.conf - Seata Server Configuration
+    - store.conf - Transaction Store Configuration
+    - registry.conf - Seata Registry Configuration
