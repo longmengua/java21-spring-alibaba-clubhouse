@@ -1,5 +1,7 @@
 package com.storage.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +16,11 @@ public class StorageService {
 
     public void decreaseStock(Long productId, Integer quantity) {
         // 根據商品 ID 查找庫存
-        Storage storage = storageRepository.findByProductId(productId);
-        if (storage.getQuantity() >= quantity) {
-            storage.setQuantity(storage.getQuantity() - quantity);
-            storageRepository.save(storage);
+        Optional<Storage> storage = storageRepository.findById(productId);
+        if (storage.isPresent() && storage.get().getQuantity() >= quantity) {
+            Storage existingStorage = storage.get();
+            existingStorage.setQuantity(existingStorage.getQuantity() - quantity);
+            storageRepository.save(existingStorage);
         } else {
             throw new RuntimeException("Not enough stock");
         }
