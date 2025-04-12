@@ -3,23 +3,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "OrderApplication",
-            "request": "launch",
-            "mainClass": "com.order.OrderApplication",
-            "projectName": "order"
-        },
-        {
-            "type": "java",
-            "name": "OrderApplication",
-            "request": "launch",
-            "mainClass": "OrderApplication",
-            "projectName": "spring-alibaba-clubhouse"
-        },
-        {
-            "type": "java",
             "name": "Run Order Application",
             "request": "launch",
-            "mainClass": "com.order.StorageApplication",
+            "mainClass": "com.order.OrderApplication",
             "projectName": "order"
         },
         {
