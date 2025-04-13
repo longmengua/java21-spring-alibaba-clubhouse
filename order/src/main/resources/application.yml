@@ -32,3 +32,29 @@ seata:
       default: localhost:8091
   data-source-proxy-mode: AT
 
+# Spring Boot Actuator 配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, env, loggers  # 启用常用监控端点
+  health:
+    diskspace:
+      enabled: true
+    redis:
+      enabled: true
+  metrics:
+    enable:
+      "[jvm.memory]": true
+      "[jvm.buffer.memory.used]": true
+      "[http.server.requests]": true
+
+# Sentinel 流量控制规则 (示例)
+sentinel:
+  rules:
+    - resource: "/api/hello"  # 控制接口流量
+      limitApp: default
+      count: 10  # 每秒最多 10 个请求
+      grade: 1  # 限流模式为 QPS
+      strategy: 0  # 0 表示默认策略，1 表示线程数策略
+      controlBehavior: 0  # 默认的限流行为，0 表示快速失败，1 表示 Warm Up 行为
