@@ -19,4 +19,10 @@ public class StorageController {
         storageService.decreaseStock(request.getProductId(), request.getQuantity());
         return "Stock Decreased";
     }
+
+    @PostMapping("/createStock")
+    public String createStock(@RequestBody StockRequest request) {
+        storageService.createStock(request.getProductId(), request.getQuantity());
+        return "Stock has been created";
+    }
 }

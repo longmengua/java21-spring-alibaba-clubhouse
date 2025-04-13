@@ -25,4 +25,11 @@ public class StorageService {
             throw new RuntimeException("Not enough stock");
         }
     }
+
+    public void createStock(Long productId, Integer quantity) {
+        Storage storage = new Storage();
+        storage.setId(productId);
+        storage.setQuantity(quantity);
+        storageRepository.save(storage);
+    }
 }

@@ -97,30 +97,6 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <!-- 阿里雲 Maven 倉庫 -->
-        <repository>
-            <id>aliyun-public</id>
-            <name>aliyun-public</name>
-            <url>https://maven.aliyun.com/repository/public</url>
-        </repository>
-        <repository>
-            <id>aliyun-spring</id>
-            <name>aliyun-spring</name>
-            <url>https://maven.aliyun.com/repository/spring</url>
-        </repository>
-        <repository>
-            <id>aliyun-spring-cloud</id>
-            <name>aliyun-spring-cloud</name>
-            <url>https://maven.aliyun.com/repository/spring-cloud</url>
-        </repository>
-        <repository>
-            <id>aliyun-google</id>
-            <name>aliyun-google</name>
-            <url>https://maven.aliyun.com/repository/google</url>
-        </repository>
-    </repositories>
-
     <build>
         <plugins>
             <plugin>
