@@ -1,10 +1,13 @@
 package com.order.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.order.request.StockRequest;
 import com.order.service.OrderService;
 
@@ -21,10 +24,20 @@ public class OrderController {
      * 如果註釋@GlobalTransactional，這樣會將整個方法標記為全局事務，當方法內的任何一個操作失敗時，所有操作都會回滾
     */
     @PostMapping("/createOrder")
-    // @GlobalTransactional(name = "create_order_tx", rollbackFor = Exception.class)
+    @GlobalTransactional(name = "create_order_tx", rollbackFor = Exception.class)
     public String createOrder(@RequestBody StockRequest request) {
         orderService.createOrder(request.getProductId(), request.getQuantity());
         orderService.decreaseStock(request.getProductId(), request.getQuantity());
         return "Order Created Successfully";
+    }
+
+    @GetMapping("/getOrder")
+    @SentinelResource(value = "helloResource", blockHandler = "handleBlock")
+    public String getOrder() {
+        return "Get Order";
+    }
+
+    public String handleBlock(BlockException ex) {
+        return "Request blocked: " + ex.getClass().getSimpleName();
     }
 }
